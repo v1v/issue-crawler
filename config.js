@@ -1,9 +1,4 @@
-const repos = [
-	'elastic/kibana',
-	'elastic/eui',
-	'elastic/elastic-charts',
-];
-
+const repos = (process.env.REPOS || 'elastic/beats').split(',').filter(val => Boolean(val));
 const privateRepos = (process.env.PRIVATE_REPOS || '').split(',').filter(val => Boolean(val));
 
 if (!process.env.GITHUB_OAUTH_TOKEN || !process.env.ES_HOST || !process.env.ES_AUTH) {
